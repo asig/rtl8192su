@@ -863,9 +863,9 @@ out:
 	return err;
 }
 
-static int r92su_change_virtual_intf(struct wiphy *wiphy,
+int r92su_change_virtual_intf(struct wiphy *wiphy,
 				     struct net_device *ndev,
-				     enum nl80211_iftype type, u32 *flags,
+				     enum nl80211_iftype type,
 				     struct vif_params *params)
 {
 	struct r92su *r92su = wiphy_priv(wiphy);
@@ -1738,7 +1738,7 @@ static void r92su_if_setup(struct net_device *ndev)
 	ether_setup(ndev);
 	ndev->priv_flags &= ~IFF_TX_SKB_SHARING;
 	ndev->netdev_ops = &r92su_netdevice_ops;
-	ndev->destructor = free_netdev;
+	ndev->priv_destructor = free_netdev;
 	ndev->needed_headroom = R92SU_TX_HEAD_ROOM;
 	ndev->needed_tailroom = R92SU_TX_TAIL_ROOM;
 	ndev->flags |= IFF_BROADCAST | IFF_MULTICAST;
