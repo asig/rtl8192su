@@ -1,5 +1,8 @@
 # Realtek RTL8188SU/RTL8191SU/RTL8192SU driver
 
+This contains some fixes to make it work under Raspbian Stretch; for more details,
+see https://www.raspberrypi.org/forums/posting.php?mode=reply&f=66&t=191844 
+
 ## Introduction
 
 This is "a" driver repository for the WIP rtl8192su for any interested developer.
